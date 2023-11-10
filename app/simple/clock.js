@@ -5,9 +5,8 @@
 import clock from "clock";
 import { preferences } from "user-settings";
 
-import { days, months, monthsShort } from "./locales/en.js";
+import { days, monthsShort } from "./locales/en.js";
 import * as util from "./utils";
-import { battery, charger } from "power";
 
 let dateFormat, clockCallback;
 
@@ -21,8 +20,6 @@ export function initialize(granularity, dateFormatString, callback) {
 function tickHandler(evt) {
   let today = evt.date;
   let dayName = days[today.getDay()];
-  let month = util.zeroPad(today.getMonth() + 1);
-  let monthName = months[today.getMonth()];
   let monthNameShort = monthsShort[today.getMonth()];
   let dayNumber = util.zeroPad(today.getDate());
 
@@ -37,24 +34,37 @@ function tickHandler(evt) {
   let mins = util.zeroPad(today.getMinutes());
 
   let timeString = `${hours}:${mins}`;
-  let dateString = today;
+  let dateString = `${dayName}, ${dayPostfix(dayNumber)} ${monthNameShort}`;
 
-  switch(dateFormat) {
-    case "shortDate":
-      dateString = `${monthNameShort} ${dayNumber}`;
-      break;
-    case "mediumDate":
-      dateString = `${dayNumber} ${monthName}`;
-      break;
-    case "longDate":
-      dateString = `${monthName} ${dayNumber}`;
-      break;
+  clockCallback({time: timeString, date: dateString});
+}
+
+function dayPostfix(day) {
+  let tempDay = Number(day);
+  let postFix;
+
+  if (tempDay > 10 && tempDay < 20) {
+    postFix = "th";
+  } else {
+    while (tempDay > 10) {
+      tempDay -= 10;
+    }
+
+    switch (tempDay) {
+      case 1:
+        postFix = "st";
+        break;
+      case 2:
+        postFix = "nd";
+        break;
+      case 3:
+        postFix = "rd";
+        break;
+      default:
+        postFix = "th";
+        break;
+    }
   }
 
-  // Use the power api to get battery level
-  let batNum = Math.floor(battery.chargeLevel);
-  let isCharging = charger.connected;
-  let power = {battery: batNum, charging: isCharging};
-
-  clockCallback({time: timeString, date: dateString, power: power});
+  return `${Number(day)}${postFix}`
 }

@@ -60,19 +60,19 @@
             <section id="CPaneMain">
 
                 <section class="datetimePage">
-                    <g class="zeroOpacity">
+                    <g class="">
                         <text id="timeText" class="displayText">22:22</text>
                         <text id="dateText" class="displayText">Fri, 10th Nov</text>
                     </g>
                 </section>
 
                 <section class="titlePage">
-                    <g class="">
+                    <g class="zeroOpacity">
                         <text x="45%" id="titleText" class="displayText">HR / Steps / Dist</text>
 
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/heart.png"/>
-                            <text x="15%" y="9%+20" id="heart" class="displayText statText">82</text>
+                            <text x="15%" y="9%+20" id="heart" class="displayText statText" />
 
                             <image x="0" y="30%" width="25" height="30" href="images/steps.png"/>
                             <text x="15%" y="30%+20" id="steps" class="displayText statText">2,200</text>
@@ -108,4 +108,5 @@
 
     <line x1="30%" y1="16%+2" x2="30%" y2="100%" fill="#c9c9c9"/>
 
+    <rect id="clickable" />
 </svg>
