@@ -22,15 +22,24 @@
     <section id="LeftPane">
 
         <section>
-            <text class="LeftPaneText" x="0" y="18%">1</text>
-            <text class="LeftPaneTextBlack" x="0" y="93%">2</text>
-            <text class="LeftPaneTextBlack" x="0" y="168%">3</text>
+            <text id="left1Power" class="LeftPaneText" x="0" y="18%">1</text>
+            <text id="left1Black" opacity="0" class="LeftPaneTextBlack" x="0" y="18%">1</text>
+
+            <text id="left2Power" opacity="0" class="LeftPaneText" x="0" y="93%">2</text>
+            <text id="left2Black" class="LeftPaneTextBlack" x="0" y="93%">2</text>
+
+            <text id="left3Power" opacity="0" class="LeftPaneText" x="0" y="168%">3</text>
+            <text id="left3Black" class="LeftPaneTextBlack" x="0" y="168%">3</text>
         </section>
 
         <section x="15%">
-            <rect class="rectPowerpoint"/>
-            <rect class="rectGrey" y="75%"/>
-            <rect class="rectGrey" y="150%"/>
+            <rect id="rect1Power" class="rectPowerpoint"/>
+            <rect id="rect2Power" opacity="0" class="rectPowerpoint" y="75%"/>
+            <rect id="rect3Power" opacity="0" class="rectPowerpoint" y="150%"/>
+
+            <rect id="rect1Grey" opacity="0" class="rectGrey"/>
+            <rect id="rect2Grey" class="rectGrey" y="75%"/>
+            <rect id="rect3Grey" class="rectGrey" y="150%"/>
 
             <rect class="rectWhite" x="0%+2" y="0%+2"/>
             <image x="23%" y="7%+1" width="30" height="30" href="images/clock.png"/>
@@ -54,25 +63,43 @@
 
     <section id="CPane">
         <section y="6%">
-            <rect id="rectCPaneBackground"/>
-            <rect id="rectCPaneMain"/>
+            <g id="datetimeOp">
+                <animateTransform attributeType="translate" from="0,0" to="100%,0" begin="disable" dur="0.4"/>
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.4"/>
+                <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
 
-            <section id="CPaneMain">
+                <rect class="rectCPaneBackground"/>
+                <rect class="rectCPaneMain"/>
 
-                <section class="datetimePage">
-                    <g class="">
+                <section class="CPaneMain">
+
+                    <section class="datetimePage">
                         <text id="timeText" class="displayText">22:22</text>
                         <text id="dateText" class="displayText">Fri, 10th Nov</text>
-                    </g>
-                </section>
+                    </section>
 
-                <section class="titlePage">
-                    <g class="zeroOpacity">
+                </section>
+            </g>
+
+            <g id="stats1Op" opacity="0">
+                <animateTransform attributeType="translate" from="0,0" to="100%,0" begin="disable" dur="0.4"/>
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.4"/>
+                <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
+
+                <rect class="rectCPaneBackground"/>
+                <rect class="rectCPaneMain"/>
+
+                <section class="CPaneMain">
+
+                    <section class="titlePage">
                         <text x="45%" id="titleText" class="displayText">HR / Steps / Dist</text>
+
 
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/heart.png"/>
-                            <text x="15%" y="9%+20" id="heart" class="displayText statText" />
+                            <text x="15%" y="9%+20" id="heart" class="displayText statText"/>
 
                             <image x="0" y="30%" width="25" height="30" href="images/steps.png"/>
                             <text x="15%" y="30%+20" id="steps" class="displayText statText">2,200</text>
@@ -80,11 +107,23 @@
                             <image x="0" y="54%" width="25" height="30" href="images/distance.png"/>
                             <text x="15%" y="54%+20" id="distance" class="displayText statText">6.10km</text>
                         </section>
-                    </g>
-                </section>
 
-                <section class="titlePage">
-                    <g class="zeroOpacity">
+                    </section>
+                </section>
+            </g>
+
+            <g id="stats2Op" opacity="0">
+                <animateTransform attributeType="translate" from="0,0" to="100%,0" begin="disable" dur="0.4"/>
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.4"/>
+                <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
+
+                <rect class="rectCPaneBackground"/>
+                <rect class="rectCPaneMain"/>
+
+                <section class="CPaneMain">
+
+                    <section class="titlePage">
                         <text x="45%" id="titleText" class="displayText">AZM / Cals / Floors</text>
 
                         <section x="5%">
@@ -97,16 +136,16 @@
                             <image x="0" y="54%" width="25" height="25" href="images/floors.png"/>
                             <text x="15%" y="54%+20" id="floors" class="displayText statText">6.10km</text>
                         </section>
-
-                    </g>
+                    </section>
                 </section>
 
-            </section>
+            </g>
+
         </section>
 
     </section>
 
     <line x1="30%" y1="16%+2" x2="30%" y2="100%" fill="#c9c9c9"/>
 
-    <rect id="clickable" />
+    <rect id="clickable"/>
 </svg>

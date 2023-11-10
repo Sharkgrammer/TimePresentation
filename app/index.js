@@ -62,17 +62,55 @@ hrm.initialize(hrmCallback);
  * Animation code
  */
 
-const screen = document.getElementById("screen");
 const clickable = document.getElementById("clickable");
 
-let iconsShown = false;
+const centerElemArr = [];
+centerElemArr.push(document.getElementById("datetimeOp"));  // 0
+centerElemArr.push(document.getElementById("stats1Op"));    // 1
+centerElemArr.push(document.getElementById("stats2Op"));    // 2
+
+const numberElemArr = [];
+numberElemArr.push(document.getElementById("left1Power")); // 0
+numberElemArr.push(document.getElementById("left2Power")); // 1
+numberElemArr.push(document.getElementById("left3Power")); // 2
+numberElemArr.push(document.getElementById("left1Black")); // 3
+numberElemArr.push(document.getElementById("left2Black")); // 4
+numberElemArr.push(document.getElementById("left3Black")); // 5
+
+const rectElemArr = [];
+rectElemArr.push(document.getElementById("rect1Power")); // 0
+rectElemArr.push(document.getElementById("rect2Power")); // 1
+rectElemArr.push(document.getElementById("rect3Power")); // 2
+rectElemArr.push(document.getElementById("rect1Grey")); // 3
+rectElemArr.push(document.getElementById("rect2Grey")); // 4
+rectElemArr.push(document.getElementById("rect3Grey")); // 5
+
+let currentSlide = 0;
+let currentLeft = 0;
 
 clickable.addEventListener("click", (evt) => {
-    if (iconsShown) {
-        screen.animate("disable");
-    } else {
-        screen.animate("enable");
+
+    // Slide change code
+    centerElemArr[currentSlide].animate("disable");
+    currentSlide++;
+    centerElemArr[currentSlide > 2 ? 0 : currentSlide].animate("enable");
+
+    if (currentSlide > 2) {
+        currentSlide = 0
     }
 
-    iconsShown = !iconsShown;
+    // Number change code
+    numberElemArr[currentLeft].style.opacity = 0;
+    numberElemArr[currentLeft + 3].style.opacity = 1;
+    rectElemArr[currentLeft].style.opacity = 0;
+    rectElemArr[currentLeft + 3].style.opacity = 1;
+
+    currentLeft++;
+    if (currentLeft > 2) currentLeft = 0;
+
+    numberElemArr[currentLeft].style.opacity = 1;
+    numberElemArr[currentLeft + 3].style.opacity = 0;
+    rectElemArr[currentLeft].style.opacity = 1;
+    rectElemArr[currentLeft + 3].style.opacity = 0;
 });
+
