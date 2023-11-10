@@ -22,24 +22,85 @@
     <section id="LeftPane">
 
         <section>
-            <text id="left1Power" class="LeftPaneText" x="0" y="18%">1</text>
-            <text id="left1Black" opacity="0" class="LeftPaneTextBlack" x="0" y="18%">1</text>
+            <g id="left1Power">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-            <text id="left2Power" opacity="0" class="LeftPaneText" x="0" y="93%">2</text>
-            <text id="left2Black" class="LeftPaneTextBlack" x="0" y="93%">2</text>
+                <text class="LeftPaneText" x="0" y="18%">1</text>
+            </g>
+            <g id="left2Power" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-            <text id="left3Power" opacity="0" class="LeftPaneText" x="0" y="168%">3</text>
-            <text id="left3Black" class="LeftPaneTextBlack" x="0" y="168%">3</text>
+                <text class="LeftPaneText" x="0" y="93%">2</text>
+            </g>
+            <g id="left3Power" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <text class="LeftPaneText" x="0" y="168%">3</text>
+            </g>
+
+            <g id="left1Black" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <text class="LeftPaneTextBlack" x="0" y="18%">1</text>
+            </g>
+            <g id="left2Black">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <text class="LeftPaneTextBlack" x="0" y="93%">2</text>
+            </g>
+            <g id="left3Black">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <text class="LeftPaneTextBlack" x="0" y="168%">3</text>
+            </g>
+
         </section>
 
         <section x="15%">
-            <rect id="rect1Power" class="rectPowerpoint"/>
-            <rect id="rect2Power" opacity="0" class="rectPowerpoint" y="75%"/>
-            <rect id="rect3Power" opacity="0" class="rectPowerpoint" y="150%"/>
+            <g id="rect1Power">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-            <rect id="rect1Grey" opacity="0" class="rectGrey"/>
-            <rect id="rect2Grey" class="rectGrey" y="75%"/>
-            <rect id="rect3Grey" class="rectGrey" y="150%"/>
+                <rect class="rectPowerpoint"/>
+            </g>
+            <g id="rect2Power" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <rect class="rectPowerpoint" y="75%"/>
+            </g>
+
+            <g id="rect3Power" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <rect class="rectPowerpoint" y="150%"/>
+            </g>
+
+            <g id="rect1Grey" opacity="0">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <rect class="rectGrey"/>
+            </g>
+            <g id="rect2Grey">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <rect class="rectGrey" y="75%"/>
+            </g>
+            <g id="rect3Grey">
+                <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
+                <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
+
+                <rect class="rectGrey" y="150%"/>
+            </g>
 
             <rect class="rectWhite" x="0%+2" y="0%+2"/>
             <image x="23%" y="7%+1" width="30" height="30" href="images/clock.png"/>

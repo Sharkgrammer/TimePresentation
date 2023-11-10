@@ -102,15 +102,15 @@ clickable.addEventListener("click", (evt) => {
     // Number change code
     numberElemArr[currentLeft].style.opacity = 0;
     numberElemArr[currentLeft + 3].style.opacity = 1;
-    rectElemArr[currentLeft].style.opacity = 0;
-    rectElemArr[currentLeft + 3].style.opacity = 1;
+    rectElemArr[currentLeft].animate("disable");
+    rectElemArr[currentLeft + 3].animate("enable");
 
     currentLeft++;
     if (currentLeft > 2) currentLeft = 0;
 
     numberElemArr[currentLeft].style.opacity = 1;
     numberElemArr[currentLeft + 3].style.opacity = 0;
-    rectElemArr[currentLeft].style.opacity = 1;
-    rectElemArr[currentLeft + 3].style.opacity = 0;
+    rectElemArr[currentLeft].animate("enable");
+    rectElemArr[currentLeft + 3].animate("disable");
 });
 
