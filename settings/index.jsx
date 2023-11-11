@@ -4,7 +4,7 @@ function FlagSettings() {
             <Section
                 title={
                     <Text bold align="center">
-                        Face face
+                        Presentation Face Settings
                     </Text>
                 }
 
@@ -15,10 +15,9 @@ function FlagSettings() {
                 }>
 
                 <TextInput
-                    label="Example"
-                    title="Text Input"
+                    label="Change Title Text"
                     action="Set Text"
-                    placeholder="Type something"
+                    placeholder="Type here..."
                     settingsKey="titleSet"
                 />
 
