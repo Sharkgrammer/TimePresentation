@@ -202,7 +202,7 @@ function setTheme(mode) {
             cTPanePostText: "#f7f7f7",
             clineShadow: "#262626",
             cLeftPaneTextBlack: "#888888",
-            cLeftPaneText: "#080808",
+            cLeftPaneText: "#f7f7f7",
             crectGrey: "#363636",
             crectPowerpoint: "#ba3f28",
             crectWhite: "#121212",
