@@ -105,8 +105,8 @@
                 <section class="CPaneMain">
 
                     <section class="datetimePage">
-                        <text id="timeText" class="displayText">22:22</text>
-                        <text id="dateText" class="displayText">Fri, 10th Nov</text>
+                        <text id="timeText" class="displayText"/>
+                        <text id="dateText" class="displayText"/>
                     </section>
 
                 </section>
@@ -126,16 +126,15 @@
                     <section class="titlePage">
                         <text x="45%" id="titleText" class="displayText">HR / Steps / Dist</text>
 
-
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/heart.png"/>
-                            <text x="15%" y="9%+20" id="heart" class="displayText statText"/>
+                            <text x="15%" y="9%+20" id="heart" class="displayText statText">--</text>
 
                             <image x="0" y="30%" width="25" height="30" href="images/steps.png"/>
-                            <text x="15%" y="30%+20" id="steps" class="displayText statText">2,200</text>
+                            <text x="15%" y="30%+20" id="steps" class="displayText statText">--</text>
 
                             <image x="0" y="54%" width="25" height="30" href="images/distance.png"/>
-                            <text x="15%" y="54%+20" id="distance" class="displayText statText">6.10km</text>
+                            <text x="15%" y="54%+20" id="distance" class="displayText statText">--</text>
                         </section>
 
                     </section>
@@ -158,13 +157,13 @@
 
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/AZM.png"/>
-                            <text x="15%" y="9%+20" id="azm" class="displayText statText">20</text>
+                            <text x="15%" y="9%+20" id="azm" class="displayText statText">--</text>
 
                             <image x="0" y="30%" width="25" height="30" href="images/calories.png"/>
-                            <text x="15%" y="30%+22" id="calories" class="displayText statText">2,200</text>
+                            <text x="15%" y="30%+22" id="calories" class="displayText statText">--</text>
 
                             <image x="0" y="54%" width="25" height="25" href="images/floors.png"/>
-                            <text x="15%" y="54%+20" id="floors" class="displayText statText">6.10km</text>
+                            <text x="15%" y="54%+20" id="floors" class="displayText statText">--</text>
                         </section>
                     </section>
                 </section>
