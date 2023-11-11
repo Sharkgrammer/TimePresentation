@@ -12,9 +12,7 @@ import * as settings from "./simple/device-settings";
 const clickable = document.getElementById("clickable");
 
 const centerElemArr = [];
-const TIME_SLIDE = 0;
-const HEART_SLIDE = 1;
-const AZM_SLIDE = 2;
+const TIME_SLIDE = 0, HEART_SLIDE = 1, AZM_SLIDE = 2;
 
 centerElemArr.push(document.getElementById("datetimeOp"));  // 0
 centerElemArr.push(document.getElementById("stats1Op"));    // 1
@@ -122,7 +120,11 @@ messaging.peerSocket.addEventListener("message", (evt) => {
     if (evt && evt.data) {
 
         if (evt.data.key === "titleSet") {
-            title.text = evt.data.value.name;
+            setTitle(evt.data.value.name);
+        }
+
+        if (evt.data.key === "darkmodeSet") {
+            setTheme(Number(evt.data.value.selected));
         }
     }
 });
@@ -132,7 +134,164 @@ function settingsCallback(data) {
         return;
     }
 
-    title.text = data["titleSet"].name;
+    setTitle(data["titleSet"].name);
+    setTheme(Number(data["darkmodeSet"].selected));
 }
 
 settings.initialize(settingsCallback);
+
+function setTitle(val) {
+    title.text = val;
+}
+
+function setTheme(mode) {
+
+    let themeData = {};
+
+    // This is not very readable but its almost 3 in the morning and I don't care
+    // Okay I think this version of JS/SVG/Whatever despises the switch statement because fuck
+    if (mode === 0) {
+        themeData = {
+            cTPane: "#ba3f28",
+            cTPaneText: "#FFDACC",
+            cTPanePost: "#f3f2f1",
+            cTPanePostText: "#4d4b49",
+            clineShadow: "#d6d6d6",
+            cLeftPaneTextBlack: "#000000",
+            cLeftPaneText: "#ba3f28",
+            crectGrey: "#c9c9c9",
+            crectPowerpoint: "#ba3f28",
+            crectWhite: "#ffffff",
+            crectCPaneMain: "#ffffff",
+            crectCPaneBackground: "#c9c9c9",
+            ctimeText: "#000000",
+            cdateText: "#000000",
+            ctitleText: "#000000",
+            cstatText: "#4d4b49",
+            clineVertical: "#c9c9c9",
+            cscreenBackground: "#e6e6e6",
+            image: "clock.png",
+        }
+    } else if (mode === 1) {
+        themeData = {
+            cTPane: "#101010",
+            cTPaneText: "#aaaaaa",
+            cTPanePost: "#181818",
+            cTPanePostText: "#f7f7f7",
+            clineShadow: "#262626",
+            cLeftPaneTextBlack: "#888888",
+            cLeftPaneText: "#f7f7f7",
+            crectGrey: "#f7f7f7",
+            crectPowerpoint: "#ba3f28",
+            crectWhite: "#ffffff",
+            crectCPaneMain: "#ffffff",
+            crectCPaneBackground: "#c9c9c9",
+            ctimeText: "#000000",
+            cdateText: "#000000",
+            ctitleText: "#000000",
+            cstatText: "#4d4b49",
+            clineVertical: "#666666",
+            cscreenBackground: "#262626",
+            image: "clock.png",
+        }
+    } else if (mode === 2) {
+        themeData = {
+            cTPane: "#101010",
+            cTPaneText: "#aaaaaa",
+            cTPanePost: "#181818",
+            cTPanePostText: "#f7f7f7",
+            clineShadow: "#262626",
+            cLeftPaneTextBlack: "#888888",
+            cLeftPaneText: "#080808",
+            crectGrey: "#363636",
+            crectPowerpoint: "#ba3f28",
+            crectWhite: "#121212",
+            crectCPaneMain: "#121212",
+            crectCPaneBackground: "#363636",
+            ctimeText: "#ffffff",
+            cdateText: "#ffffff",
+            ctitleText: "#ffffff",
+            cstatText: "#b2b4b6",
+            clineVertical: "#666666",
+            cscreenBackground: "#262626",
+            image: "clockWhite.png",
+        }
+    }
+
+    actuallySetTheme(themeData);
+}
+
+function actuallySetTheme(data) {
+    const TPane = document.getElementById("TPane");
+    const TPaneText = document.getElementById("TPaneText");
+    const TPanePost = document.getElementById("TPanePost");
+    const TPanePostText = document.getElementsByClassName("TPanePostText");
+    const lineShadow = document.getElementById("lineShadow");
+    const LeftPaneTextBlack = document.getElementsByClassName("LeftPaneTextBlack");
+    const LeftPaneText = document.getElementsByClassName("LeftPaneText");
+    const rectGrey = document.getElementsByClassName("rectGrey");
+    const rectPowerpoint = document.getElementsByClassName("rectPowerpoint");
+    const rectWhite = document.getElementsByClassName("rectWhite");
+    const rectCPaneMain = document.getElementsByClassName("rectCPaneMain");
+    const rectCPaneBackground = document.getElementsByClassName("rectCPaneBackground");
+    const timeText = document.getElementById("timeText");
+    const dateText = document.getElementById("dateText");
+    const titleText = document.getElementsByClassName("titleText");
+    const statText = document.getElementsByClassName("statText");
+    const lineVertical = document.getElementById("lineVertical");
+    const screenBackground = document.getElementById("screenBackground");
+    const clockImage = document.getElementById("clockImage");
+
+    TPane.style.fill = data.cTPane;
+    TPaneText.style.fill = data.cTPaneText;
+    TPanePost.style.fill = data.cTPanePost;
+
+    for (let elem of TPanePostText) {
+        elem.style.fill = data.cTPanePostText;
+    }
+
+    lineShadow.style.fill = data.clineShadow;
+
+    for (let elem of LeftPaneTextBlack) {
+        elem.style.fill = data.cLeftPaneTextBlack;
+    }
+
+    for (let elem of LeftPaneText) {
+        elem.style.fill = data.cLeftPaneText;
+    }
+
+    for (let elem of rectGrey) {
+        elem.style.fill = data.crectGrey;
+    }
+
+    for (let elem of rectPowerpoint) {
+        elem.style.fill = data.crectPowerpoint;
+    }
+
+    for (let elem of rectWhite) {
+        elem.style.fill = data.crectWhite;
+    }
+
+    for (let elem of rectCPaneMain) {
+        elem.style.fill = data.crectCPaneMain;
+    }
+
+    for (let elem of rectCPaneBackground) {
+        elem.style.fill = data.crectCPaneBackground;
+    }
+
+    timeText.style.fill = data.ctimeText;
+    dateText.style.fill = data.cdateText;
+
+    for (let elem of titleText) {
+        elem.style.fill = data.ctitleText;
+    }
+
+    for (let elem of statText) {
+        elem.style.fill = data.cstatText;
+    }
+
+    lineVertical.style.fill = data.clineVertical;
+    screenBackground.style.fill = data.cscreenBackground;
+    clockImage.href = "images/" + data.image;
+}

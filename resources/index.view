@@ -1,87 +1,89 @@
 <svg id="screen" pointer-events="visible">
 
-    <rect id="TPane">
-        <text id="TPaneText" class="displayText">Time Presentation</text>
+    <rect id="screenBackground" fill="#e6e6e6" x="0" y="0" width="100%" height="100%"/>
+
+    <rect id="TPane" fill="#ba3f28">
+        <text id="TPaneText" fill="#FFDACC" class="displayText">Time Presentation</text>
     </rect>
 
-    <rect id="TPanePost">
+    <rect id="TPanePost" fill="#f3f2f1">
         <section id="TPanePostItems">
-            <text class="TPanePostText" x="0%">File</text>
-            <text class="TPanePostText" x="9%-2">Home</text>
-            <text class="TPanePostText" x="21%">Insert</text>
-            <text class="TPanePostText" x="33%+2">Draw</text>
-            <text class="TPanePostText" x="45%">Design</text>
-            <text class="TPanePostText" x="59%+2">Review</text>
-            <text class="TPanePostText" x="75%-1">Help</text>
+            <text class="TPanePostText" fill="#4d4b49" x="0%">File</text>
+            <text class="TPanePostText" fill="#4d4b49" x="9%-2">Home</text>
+            <text class="TPanePostText" fill="#4d4b49" x="21%">Insert</text>
+            <text class="TPanePostText" fill="#4d4b49" x="33%+2">Draw</text>
+            <text class="TPanePostText" fill="#4d4b49" x="45%">Design</text>
+            <text class="TPanePostText" fill="#4d4b49" x="59%+2">Review</text>
+            <text class="TPanePostText" fill="#4d4b49" x="75%-1">Help</text>
         </section>
     </rect>
 
-    <line x1="0" y1="16%+1" x2="100%" y2="16%+1" fill="#d6d6d6" stroke-width="2"/>
+    <line id="lineShadow" x1="0" y1="16%+1" x2="100%" y2="16%+1" fill="#d6d6d6" stroke-width="2"/>
 
     <section id="LeftPane">
 
         <section>
-            <text class="LeftPaneTextBlack" x="0" y="18%">1</text>
-            <text class="LeftPaneTextBlack" x="0" y="93%">2</text>
-            <text class="LeftPaneTextBlack" x="0" y="168%">3</text>
+            <text class="LeftPaneTextBlack" fill="#000000" x="0" y="18%">1</text>
+            <text class="LeftPaneTextBlack" fill="#000000" x="0" y="93%">2</text>
+            <text class="LeftPaneTextBlack" fill="#000000" x="0" y="168%">3</text>
 
             <g id="left1Power">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <text class="LeftPaneText" x="0" y="18%">1</text>
+                <text class="LeftPaneText" fill="#ba3f28" x="0" y="18%">1</text>
             </g>
             <g id="left2Power" opacity="0">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <text class="LeftPaneText" x="0" y="93%">2</text>
+                <text class="LeftPaneText" fill="#ba3f28" x="0" y="93%">2</text>
             </g>
             <g id="left3Power" opacity="0">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <text class="LeftPaneText" x="0" y="168%">3</text>
+                <text class="LeftPaneText" fill="#ba3f28" x="0" y="168%">3</text>
             </g>
 
         </section>
 
         <section x="15%">
-            <rect class="rectGrey"/>
-            <rect class="rectGrey" y="75%"/>
-            <rect class="rectGrey" y="150%"/>
+            <rect class="rectGrey" fill="#c9c9c9"/>
+            <rect class="rectGrey" fill="#c9c9c9" y="75%"/>
+            <rect class="rectGrey" fill="#c9c9c9" y="150%"/>
 
             <g id="rect1Power">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <rect class="rectPowerpoint"/>
+                <rect class="rectPowerpoint" fill="#ba3f28"/>
             </g>
             <g id="rect2Power" opacity="0">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <rect class="rectPowerpoint" y="75%"/>
+                <rect class="rectPowerpoint" fill="#ba3f28" y="75%"/>
             </g>
 
             <g id="rect3Power" opacity="0">
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.5"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.5"/>
 
-                <rect class="rectPowerpoint" y="150%"/>
+                <rect class="rectPowerpoint" fill="#ba3f28" y="150%"/>
             </g>
 
-            <rect class="rectWhite" x="0%+2" y="0%+2"/>
-            <image x="21%" y="5%+2" width="35" height="35" href="images/clock.png"/>
+            <rect class="rectWhite" fill="#ffffff" x="0%+2" y="0%+2"/>
+            <image id="clockImage" x="21%" y="5%+2" width="35" height="35" href="images/clock.png"/>
 
-            <rect class="rectWhite" x="0%+2" y="75%+2"/>
+            <rect class="rectWhite" fill="#ffffff" x="0%+2" y="75%+2"/>
             <section x="8%" y="92%-1">
                 <image x="0%" y="0%+2" width="17" height="17" href="images/heart.png"/>
                 <image x="24%" y="0%" width="17" height="20" href="images/steps.png"/>
                 <image x="48%" y="0%" width="17" height="20" href="images/distance.png"/>
             </section>
 
-            <rect class="rectWhite" x="0%+2" y="150%+2"/>
+            <rect class="rectWhite" fill="#ffffff" x="0%+2" y="150%+2"/>
             <section x="8%" y="167%-1">
                 <image x="0%" y="0%+2" width="17" height="17" href="images/AZM.png"/>
                 <image x="24%" y="0%" width="17" height="20" href="images/calories.png"/>
@@ -99,14 +101,14 @@
                 <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
 
-                <rect class="rectCPaneBackground"/>
-                <rect class="rectCPaneMain"/>
+                <rect class="rectCPaneBackground" fill="#c9c9c9"/>
+                <rect class="rectCPaneMain" fill="#ffffff"/>
 
                 <section class="CPaneMain">
 
                     <section class="datetimePage">
-                        <text id="timeText" class="displayText"/>
-                        <text id="dateText" class="displayText"/>
+                        <text id="timeText" class="displayText" fill="#000000"/>
+                        <text id="dateText" class="displayText" fill="#000000"/>
                     </section>
 
                 </section>
@@ -118,23 +120,23 @@
                 <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
 
-                <rect class="rectCPaneBackground"/>
-                <rect class="rectCPaneMain"/>
+                <rect class="rectCPaneBackground" fill="#c9c9c9"/>
+                <rect class="rectCPaneMain" fill="#ffffff"/>
 
                 <section class="CPaneMain">
 
                     <section class="titlePage">
-                        <text x="45%" id="titleText" class="displayText">HR / Steps / Dist</text>
+                        <text x="45%" class="displayText titleText" fill="#000000">HR / Steps / Dist</text>
 
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/heart.png"/>
-                            <text x="15%" y="9%+20" id="heart" class="displayText statText">--</text>
+                            <text x="15%" y="9%+20" id="heart" class="displayText statText" fill="#4d4b49">--</text>
 
                             <image x="0" y="30%" width="25" height="30" href="images/steps.png"/>
-                            <text x="15%" y="30%+20" id="steps" class="displayText statText">--</text>
+                            <text x="15%" y="30%+20" id="steps" class="displayText statText" fill="#4d4b49">--</text>
 
                             <image x="0" y="54%" width="25" height="30" href="images/distance.png"/>
-                            <text x="15%" y="54%+20" id="distance" class="displayText statText">--</text>
+                            <text x="15%" y="54%+20" id="distance" class="displayText statText" fill="#4d4b49">--</text>
                         </section>
 
                     </section>
@@ -147,23 +149,23 @@
                 <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
 
-                <rect class="rectCPaneBackground"/>
-                <rect class="rectCPaneMain"/>
+                <rect class="rectCPaneBackground" fill="#c9c9c9"/>
+                <rect class="rectCPaneMain" fill="#ffffff"/>
 
                 <section class="CPaneMain">
 
                     <section class="titlePage">
-                        <text x="45%" id="titleText" class="displayText">AZM / Cals / Floors</text>
+                        <text x="45%" class="displayText titleText" fill="#000000">AZM / Cals / Floors</text>
 
                         <section x="5%">
                             <image x="0" y="9%" width="25" height="25" href="images/AZM.png"/>
-                            <text x="15%" y="9%+20" id="azm" class="displayText statText">--</text>
+                            <text x="15%" y="9%+20" id="azm" class="displayText statText" fill="#4d4b49">--</text>
 
                             <image x="0" y="30%" width="25" height="30" href="images/calories.png"/>
-                            <text x="15%" y="30%+22" id="calories" class="displayText statText">--</text>
+                            <text x="15%" y="30%+22" id="calories" class="displayText statText" fill="#4d4b49">--</text>
 
                             <image x="0" y="54%" width="25" height="25" href="images/floors.png"/>
-                            <text x="15%" y="54%+20" id="floors" class="displayText statText">--</text>
+                            <text x="15%" y="54%+20" id="floors" class="displayText statText" fill="#4d4b49">--</text>
                         </section>
                     </section>
                 </section>
@@ -174,7 +176,7 @@
 
     </section>
 
-    <line x1="30%" y1="16%+2" x2="30%" y2="100%" fill="#c9c9c9"/>
+    <line id="lineVertical" x1="30%" y1="16%+2" x2="30%" y2="100%" fill="#c9c9c9"/>
 
     <rect id="clickable"/>
 </svg>

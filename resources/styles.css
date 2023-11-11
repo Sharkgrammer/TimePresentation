@@ -1,24 +1,18 @@
 /*noinspection ALL*/
-#screen {
-  viewport-fill: #e6e6e6;
-}
-
-/*noinspection ALL*/
 #TPane{
   x: 0%;
   y: 0%;
   width: 100%;
   height: 10%;
-  fill: #ba3f28;
 }
 
 /*noinspection ALL*/
 #TPaneText {
   font-size: 16;
+  text-length: 50;
   text-anchor: middle;
   x: 50%;
   y: 7%;
-  fill: #FFDACC;
 }
 
 /*noinspection ALL*/
@@ -27,7 +21,6 @@
   y: 10%;
   width: 100%;
   height: 6%+2;
-  fill: #f3f2f1;
 }
 
 /*noinspection ALL*/
@@ -40,7 +33,6 @@
 .TPanePostText{
   font-size: 14;
   text-anchor: start;
-  fill: #4d4b49;
   y: 0%;
 }
 
@@ -56,33 +48,28 @@
 .LeftPaneText{
   font-size: 16;
   text-anchor: start;
-  fill: #ba3f28;
 }
 
 /*noinspection ALL*/
 .LeftPaneTextBlack{
   font-size: 16;
   text-anchor: start;
-  fill: #3D3D3D;
 }
 
 /*noinspection ALL*/
 .rectWhite {
-  fill: white;
   width: 82%-4;
   height: 55%-4;
 }
 
 /*noinspection ALL*/
 .rectGrey{
-  fill: #c9c9c9;
   width: 82%;
   height: 55%;
 }
 
 /*noinspection ALL*/
 .rectPowerpoint{
-  fill: #ba3f28;
   width: 82%;
   height: 55%;
 }
@@ -111,7 +98,6 @@
 
 /*noinspection ALL*/
 .rectCPaneMain{
-  fill: white;
   width: 94%-4;
   height: 67%-4;
   x: 0%+2;
@@ -120,7 +106,6 @@
 
 /*noinspection ALL*/
 .rectCPaneBackground{
-  fill: #c9c9c9;
   width: 94%;
   height: 67%;
   x: 0%;
@@ -137,7 +122,6 @@
 #timeText{
   font-size: 46;
   text-anchor: middle;
-  fill: black;
   y: -8%;
 }
 
@@ -145,7 +129,6 @@
 #dateText{
   font-size: 26;
   text-anchor: middle;
-  fill: black;
   y: 8%;
 }
 
@@ -156,10 +139,9 @@
 }
 
 /*noinspection ALL*/
-#titleText{
+.titleText{
   font-size: 24;
   text-anchor: middle;
-  fill: black;
   y: 0%;
 }
 
@@ -167,7 +149,6 @@
 .statText{
   font-size: 20;
   text-anchor: start;
-  fill: #3D3D3D;
   y: 20%;
 }
 
