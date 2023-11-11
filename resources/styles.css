@@ -18,7 +18,7 @@
   text-anchor: middle;
   x: 50%;
   y: 7%;
-  fill: #fcc7b3;
+  fill: #FFDACC;
 }
 
 /*noinspection ALL*/
@@ -38,7 +38,7 @@
 
 /*noinspection ALL*/
 .TPanePostText{
-  font-size: 16;
+  font-size: 14;
   text-anchor: start;
   fill: #4d4b49;
   y: 0%;
@@ -46,8 +46,8 @@
 
 /*noinspection ALL*/
 #LeftPane{
-  x: 4%;
-  y: 18%;
+  x: 3%+1;
+  y: 20%;
   width: 25%;
   height: 25%;
 }
@@ -63,28 +63,28 @@
 .LeftPaneTextBlack{
   font-size: 16;
   text-anchor: start;
-  fill: black;
+  fill: #3D3D3D;
 }
 
 /*noinspection ALL*/
 .rectWhite {
   fill: white;
-  width: 80%-4;
-  height: 50%-4;
+  width: 82%-4;
+  height: 55%-4;
 }
 
 /*noinspection ALL*/
 .rectGrey{
   fill: #c9c9c9;
-  width: 80%;
-  height: 50%;
+  width: 82%;
+  height: 55%;
 }
 
 /*noinspection ALL*/
 .rectPowerpoint{
   fill: #ba3f28;
-  width: 80%;
-  height: 50%;
+  width: 82%;
+  height: 55%;
 }
 
 /*noinspection ALL*/

@@ -73,17 +73,11 @@ const numberElemArr = [];
 numberElemArr.push(document.getElementById("left1Power")); // 0
 numberElemArr.push(document.getElementById("left2Power")); // 1
 numberElemArr.push(document.getElementById("left3Power")); // 2
-numberElemArr.push(document.getElementById("left1Black")); // 3
-numberElemArr.push(document.getElementById("left2Black")); // 4
-numberElemArr.push(document.getElementById("left3Black")); // 5
 
 const rectElemArr = [];
 rectElemArr.push(document.getElementById("rect1Power")); // 0
 rectElemArr.push(document.getElementById("rect2Power")); // 1
 rectElemArr.push(document.getElementById("rect3Power")); // 2
-rectElemArr.push(document.getElementById("rect1Grey")); // 3
-rectElemArr.push(document.getElementById("rect2Grey")); // 4
-rectElemArr.push(document.getElementById("rect3Grey")); // 5
 
 let currentSlide = 0;
 let currentLeft = 0;
@@ -100,17 +94,13 @@ clickable.addEventListener("click", (evt) => {
     }
 
     // Number change code
-    numberElemArr[currentLeft].style.opacity = 0;
-    numberElemArr[currentLeft + 3].style.opacity = 1;
+    numberElemArr[currentLeft].animate("disable");
     rectElemArr[currentLeft].animate("disable");
-    rectElemArr[currentLeft + 3].animate("enable");
 
     currentLeft++;
     if (currentLeft > 2) currentLeft = 0;
 
-    numberElemArr[currentLeft].style.opacity = 1;
-    numberElemArr[currentLeft + 3].style.opacity = 0;
+    numberElemArr[currentLeft].animate("enable");
     rectElemArr[currentLeft].animate("enable");
-    rectElemArr[currentLeft + 3].animate("disable");
 });
 
