@@ -2,15 +2,9 @@ function FlagSettings() {
     return (
         <Page>
             <Section
-                title={
-                    <Text bold align="center">
-                        Presentation Face Settings
-                    </Text>
-                }
-
                 description={
                     <Text>
-                        Some kinda text describing what the select options are
+                        These settings allow you to change the title and theme of Slidelike Presentation
                     </Text>
                 }>
 
@@ -18,9 +12,9 @@ function FlagSettings() {
                     label={`Display Mode`}
                     settingsKey="darkmodeSet"
                     options={[
-                        {name: "Light Mode", desc: "Test", value: "0"},
-                        {name: "Darkish Mode", desc: "Test", value: "1"},
-                        {name: "Dark Mode", desc: "Test", value: "2"},
+                        {name: "Light Mode", desc: "All light colours", value: "0"},
+                        {name: "Darkish Mode", desc: "Mostly dark colours with the central slide light", value: "1"},
+                        {name: "Dark Mode", desc: "All dark colours", value: "2"},
                     ]}
                     renderItem={
                         (option) =>
@@ -37,7 +31,6 @@ function FlagSettings() {
                     action="Set Text"
                     placeholder="Type here..."
                     settingsKey="titleSet"
-                    maxLength="11"
                 />
 
             </Section>
