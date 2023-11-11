@@ -10,7 +10,7 @@
   "fitbit": {
     "appUUID": "a96debcd-4091-4ea1-b09b-96f49c63f50b",
     "appType": "clockface",
-    "appDisplayName": "Powerface",
+    "appDisplayName": "Slidelike Presentation",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [
