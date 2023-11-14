@@ -105,7 +105,7 @@ function clockCallback(data) {
 
 }
 
-clock.initialize("seconds", "shortDate", clockCallback);
+clock.initialize("minutes", "shortDate", clockCallback);
 
 function convertTo24(time) {
     let split = time.split(" ");
