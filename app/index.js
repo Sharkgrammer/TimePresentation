@@ -2,7 +2,6 @@ import * as document from "document";
 import * as clock from "./simple/clock";
 import * as activity from "./simple/activity";
 import * as hrm from "./simple/hrm";
-import * as messaging from "messaging";
 import * as settings from "./simple/device-settings";
 
 /**
@@ -60,14 +59,67 @@ clickable.addEventListener("click", (evt) => {
 const timeElem = document.getElementById("timeText");
 const dateElem = document.getElementById("dateText");
 
+let autoDarkModeEnabled = false;
+let autoDarkModeTimes = {};
+let currentTheme = 0;
+
 function clockCallback(data) {
     if (currentSlide !== TIME_SLIDE) return;
 
     timeElem.text = data.time;
     dateElem.text = data.date;
+
+    if (autoDarkModeEnabled) {
+        let currentTime, onTime, offTime;
+
+        // Convert to 24
+        if (!data.h12) {
+            currentTime = data.time;
+        } else {
+            currentTime = `${data.rawH}:${data.rawM}`;
+        }
+
+        if (!autoDarkModeTimes.h12) {
+            onTime = autoDarkModeTimes.on;
+            offTime = autoDarkModeTimes.off;
+        } else {
+            onTime = convertTo24(autoDarkModeTimes.on);
+            offTime = convertTo24(autoDarkModeTimes.off);
+        }
+
+        // Set theme
+        let setDarkTheme;
+
+        if (onTime <= offTime) {
+            setDarkTheme = currentTime >= onTime && currentTime <= offTime;
+        } else {
+            setDarkTheme = currentTime >= onTime || currentTime <= offTime;
+        }
+
+        if (setDarkTheme) {
+            if (currentTheme === 0) setTheme(2);
+        } else {
+            if (currentTheme === 2) setTheme(0);
+        }
+    }
+
 }
 
-clock.initialize("minutes", "shortDate", clockCallback);
+clock.initialize("seconds", "shortDate", clockCallback);
+
+function convertTo24(time) {
+    let split = time.split(" ");
+
+    let tH = split[0].split(":")[0];
+    let tM = split[0].split(":")[1];
+    let p = split[1];
+
+    if (p === "PM") {
+        tH = Number(tH) + 12;
+    }
+
+    return `${tH}:${tM}`;
+}
 
 /**
  * STEPS, DISTANCE, AZM, CALORIES
@@ -116,26 +168,36 @@ hrm.initialize(hrmCallback);
 
 let title = document.getElementById("TPaneText");
 
-messaging.peerSocket.addEventListener("message", (evt) => {
-    if (evt && evt.data) {
-
-        if (evt.data.key === "titleSet") {
-            setTitle(evt.data.value.name);
-        }
-
-        if (evt.data.key === "darkmodeSet") {
-            setTheme(Number(evt.data.value.selected));
-        }
-    }
-});
-
 function settingsCallback(data) {
-    if (!data) {
-        return;
+    // Core Settings
+    const title = data["titleSet"];
+    const darkmode = data["darkmodeSet"] === undefined ? 0 : Number(data["darkmodeSet"].selected);
+
+    if (title !== undefined) setTitle(title.name);
+
+    // Auto Dark Mode
+    const autoMode = data["toggleModeSelects"] === undefined ? false : data["toggleModeSelects"];
+    const autoTimeMode = data["toggleModeHour"];
+    const darkmodeOn = data["darkmodeOnTime"];
+    const darkmodeOff = data["darkmodeOffTime"];
+
+    if (darkmodeOn !== undefined && darkmodeOff !== undefined) {
+
+        if (darkmode === 0) {
+            autoDarkModeEnabled = autoMode;
+
+            autoDarkModeTimes.on = darkmodeOn.values[0].name;
+            autoDarkModeTimes.off = darkmodeOff.values[0].name;
+            autoDarkModeTimes.h12 = (autoTimeMode === undefined ? false : autoTimeMode);
+        } else {
+            autoDarkModeEnabled = false;
+        }
+
     }
 
-    setTitle(data["titleSet"].name);
-    setTheme(Number(data["darkmodeSet"].selected));
+    if (!autoDarkModeEnabled) {
+        setTheme(darkmode);
+    }
 }
 
 settings.initialize(settingsCallback);
@@ -145,6 +207,7 @@ function setTitle(val) {
 }
 
 function setTheme(mode) {
+    currentTheme = mode;
 
     let themeData = {};
 
