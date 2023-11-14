@@ -97,9 +97,9 @@ function clockCallback(data) {
         }
 
         if (setDarkTheme) {
-            if (currentTheme === 0) setTheme(2);
+            if (currentTheme !== 2) setTheme(2);
         } else {
-            if (currentTheme === 2) setTheme(0);
+            if (currentTheme !== 0) setTheme(0);
         }
     }
 
@@ -181,18 +181,15 @@ function settingsCallback(data) {
     const darkmodeOn = data["darkmodeOnTime"];
     const darkmodeOff = data["darkmodeOffTime"];
 
-    if (darkmodeOn !== undefined && darkmodeOff !== undefined) {
+    if (darkmode === 0) {
+        autoDarkModeEnabled = autoMode;
 
-        if (darkmode === 0) {
-            autoDarkModeEnabled = autoMode;
-
-            autoDarkModeTimes.on = darkmodeOn.values[0].name;
-            autoDarkModeTimes.off = darkmodeOff.values[0].name;
-            autoDarkModeTimes.h12 = (autoTimeMode === undefined ? false : autoTimeMode);
-        } else {
-            autoDarkModeEnabled = false;
-        }
-
+        // Setting default values, because, ugh.
+        autoDarkModeTimes.on = darkmodeOn !== undefined ? darkmodeOn.values[0].name : "22:00";
+        autoDarkModeTimes.off = darkmodeOff !== undefined ? darkmodeOff.values[0].name : "10:00";
+        autoDarkModeTimes.h12 = (autoTimeMode === undefined ? false : autoTimeMode);
+    } else {
+        autoDarkModeEnabled = false;
     }
 
     if (!autoDarkModeEnabled) {

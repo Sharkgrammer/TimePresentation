@@ -29,9 +29,14 @@ function SlideSettings(props) {
     return (
         <Page>
             <Section
-                title={<Text bold align="center">Core Settings</Text>}
-                description={<Text>These settings allow you to change the title and theme of Slidelike
-                    Presentation and are always available</Text>}>
+                title={<Text bold align="center">Core Settings</Text>}>
+
+                <TextInput
+                    title="Change Title Text"
+                    placeholder="Type here..."
+                    settingsKey="titleSet"
+                    default="test"
+                />
 
                 <Select
                     label={`Display Mode`}
@@ -41,6 +46,7 @@ function SlideSettings(props) {
                         {name: "Darkish Mode", desc: "Mostly dark colours with the central slide light", value: "1"},
                         {name: "Dark Mode", desc: "All dark colours", value: "2"},
                     ]}
+                    disabled={(props.settings.toggleModeSelects === "true")}
                     renderItem={
                         (option) =>
                             <TextImageRow
@@ -50,15 +56,6 @@ function SlideSettings(props) {
                     }
                 />
 
-
-                <TextInput
-                    title="Change Title Text"
-                    placeholder="Type here..."
-                    settingsKey="titleSet"
-                    default="test"
-                />
-
-
             </Section>
 
             <Section
@@ -66,16 +63,19 @@ function SlideSettings(props) {
                 description={<Text>Auto Dark Mode will only work if your theme is set to light mode and both times are
                     set to something</Text>}>
 
+
                 <Toggle
                     label={`Auto Dark Mode: ${props.settings.toggleModeSelects === 'true' ? 'Yes' : 'No'}`}
                     settingsKey="toggleModeSelects"
                 />
+
 
                 <Toggle
                     label={`Auto Time Mode: ${props.settings.toggleModeHour === 'true' ? '12hr' : '24hr'}`}
                     settingsKey="toggleModeHour"
                     disabled={!(props.settings.toggleModeSelects === "true")}
                 />
+
 
                 <Select
                     label={`Dark Mode On`}
