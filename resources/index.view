@@ -96,8 +96,10 @@
     <section id="CPane">
         <section y="6%">
             <g id="datetimeOp">
+                
                 <animateTransform attributeType="translate" from="0,0" to="100%,0" begin="disable" dur="0.4"/>
                 <animate attributeName="opacity" begin="disable" from="1" to="0" dur="0.4"/>
+
                 <animateTransform attributeType="translate" from="0,100%" to="0,0" begin="enable" dur="0.4"/>
                 <animate attributeName="opacity" begin="enable" from="0" to="1" dur="0.4"/>
 
