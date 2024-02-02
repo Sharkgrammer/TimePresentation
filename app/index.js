@@ -64,8 +64,6 @@ let autoDarkModeTimes = {};
 let currentTheme = 0;
 
 function clockCallback(data) {
-    if (currentSlide !== TIME_SLIDE) return;
-
     timeElem.text = data.time;
     dateElem.text = data.date;
 
