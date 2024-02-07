@@ -20,5 +20,5 @@ It displays the following stats:
 
 The title text and themes are customizable from the settings page. Choose between light mode, dark-ish mode and true dark mode. 
 
-
+![Gif](PowerPointGIF.gif)
 ![Clock](https://gallery-assets.fitbit.com/public/NM0kDY0ZOLNoBnGWAINnBnFhC2JtBXosCIJqAIRlD2O_C5CZBY0_DF/Na4_Bn.nCa3hCLOXNXooDINqAL4YO2JhCnC_Nq8XCYBpBn3m@1x.png)
